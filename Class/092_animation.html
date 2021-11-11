@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거꾸로</title>
+    <style>
+        @keyframes rotation {
+            0% {
+                transform: translate(0);
+            }
+            
+            33.3333% {
+                transform: translate(200px, 0);
+            }
+
+            66.6666% {
+                transform: translate(200px, 200px);
+            }
+
+            100% {
+                transform: translate(0, 200px);
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 50px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            animation: rotation 3s ease-in-out alternate infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
