@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button_정리</title>
+    <style>
+        button {
+            display: block;
+            position: relative;
+            color: white;
+            text-align: center;
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 50px;
+            width: 200px;
+            height: 50px;
+            background-color: rgb(115, 146, 185);
+            border: 2px solid black;
+            border-radius: 15px;
+            transition: all 1s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        /* translate, rotate, skew, scale */
+        .c1:hover {
+            transform: translateX(100px);
+            transition-timing-function: ease;
+        }
+
+        /* ease-in, ease-out, ease-in-out은 잘 사용하지 않습니다. */
+
+        .c2:hover {
+            transform: translateX(100px);
+            transition-timing-function: linear;
+        }
+
+        .c3:hover {
+            background-color: lightsalmon;
+        }
+
+        .c4:hover {
+            background-color: goldenrod;
+            color: darkgreen
+        }
+
+        .c5:hover {
+            transform: scale(1.2);
+            background-color: goldenrod;
+            color: darkgreen
+        }
+
+        .c6:hover {
+            width: 1000px;
+            height: 100px;
+        }
+
+        .c7:hover {
+            width: 250px;
+        }
+
+        .c8:hover {
+            width: 250px;
+            letter-spacing: 20px;
+        }
+
+        .c9:hover {
+            opacity: 0.3;
+        }
+
+        .c10:hover {
+            border-color: darkslateblue;
+            border-width: 20px;
+        }
+
+        .c11:hover {
+            transform: rotate(20deg);
+        }
+
+        .c12:hover {
+            transform: rotate(20deg);
+            transform-origin: top;
+        }
+
+        .c13:hover {
+            transform: rotate(20deg);
+            transform-origin: right;
+        }
+
+        .c14:hover {
+            transform: rotate(20deg);
+            transform-origin: bottom;
+        }
+
+        .c15:hover {
+            transform: rotate(20deg);
+            transform-origin: left;
+        }
+
+        .c16::before {
+            position: absolute;
+            content: "";
+            background-color: white;
+            width: 200px;
+            height: 5px;
+            left: 0;
+            bottom: 0;
+            transform: translateX(-300px);
+            transition: all 1s;
+        }
+
+        .c16:hover::before {
+            transform: translateX(0);
+        }
+
+        .c17::before {
+            position: absolute;
+            content: '';
+            background-color: white;
+            width: 200px;
+            height: 10px;
+            left: 0;
+            bottom: 0;
+            transform: translateX(-300px);
+            transition: all 1s;
+            /* z-index: -10; */
+        }
+
+        .c17:hover::before {
+            transform: translateX(0);
+        }
+
+        .c18::before {
+            content: '';
+            position: absolute;
+            background-color: white;
+            width: 200px;
+            height: 10px;
+            left: 0;
+            bottom: 0;
+            transform: translateX(-300px);
+            transition: all 1s;
+        }
+
+        .c18:hover::before {
+            transform: translateX(0);
+        }
+
+        .c18::after {
+            content: '';
+            position: absolute;
+            background-color: white;
+            width: 200px;
+            height: 10px;
+            right: 0;
+            top: 0;
+            transform: translateX(300px);
+            transition: all 1s;
+        }
+
+        .c18:hover::after {
+            transform: translateX(0);
+        }
+
+        .c19::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: whitesmoke;
+            transition: all .5s;
+            transform: rotateX(90deg);
+        }
+
+        .c19:hover::before {
+            transform: rotateX(0);
+            z-index: -1;
+        }
+
+        .c19::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: whitesmoke;
+            transition: all .5s;
+            transform: rotateY(90deg);
+        }
+
+        .c19:hover::after {
+            transform: rotateY(0);
+            z-index: -1;
+        }
+
+        .c19:hover {
+            color: tomato;
+            z-index: 1;
+        }
+
+        .c20::after {
+            content: 'a';
+        }
+
+        .c20::after::after {
+            content: 'b';
+        }
+
+        .c21::before {
+            position: absolute;
+            content: 'Hello World';
+            color: white;
+            background-color: tomato;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-100%);
+            transition: all .5s;
+        }
+
+        .c21:hover::before {
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+
+<body>
+    <button class="c1">ease</button>
+    <button class="c2">linear</button>
+    <button class="c3">b-color</button>
+    <button class="c4">color</button>
+    <button class="c5">scale</button>
+    <button class="c6">size</button>
+    <button class="c7">글자간격</button>
+    <button class="c8">love</button>
+    <button class="c9">opacity</button>
+    <button class="c10">border</button>
+    <button class="c11">rotate</button>
+    <button class="c12">rotate top</button>
+    <button class="c13">rotate rt</button>
+    <button class="c14">rotate bot</button>
+    <button class="c15">rotate lt</button>
+    <button class="c16">가상요소</button>
+    <button class="c17">가상2</button>
+    <button class="c18">가상3</button>
+    <button class="c19">오픈</button>
+    <button class="c20">hello</button>
+    <button class="c21">UP</button>
+</body>
+
+</html>
