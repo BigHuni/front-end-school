@@ -1,0 +1,17 @@
+
+body {
+    font-family: 'GmarketSansMedium';
+    background-color: #582386;
+    color: #FFFFFF;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
