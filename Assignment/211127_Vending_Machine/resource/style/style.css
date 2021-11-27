@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+body {
+  background-color: #EAE8FE;
+}
+
+.bever_image {
+  display: block;
+}
+
+.bm {
+  display: block;
+  overflow: hidden;
+  position: absolute;
+  text-indent: -9999px;
+  line-height: 0;
+  font-size: 1px;
+  color: transparent;
+}
+
+#app {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start; 
+  gap: 0 28px; 
+  padding-top: 248px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+#app .title {
+  top: 0;
+  width: 100%;
+  max-width: 386px;
+  height: 180px;
+  background: no-repeat center / 100% 100% url(../images/logo.svg);
+}
+
+#app .bever_items, #app .bever_info{
+  width:360px;
+  background:#fff;
+  box-sizing: border-box;
+}
+
+.bever_items .bever_list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+
+.bever_items .bever_list li{
+  position: relative;
+  width: 30%;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bever_items .bever_list .bever_image {
+  width: 36px;
+  height: 65px;
+  margin: 0 auto;
+}
