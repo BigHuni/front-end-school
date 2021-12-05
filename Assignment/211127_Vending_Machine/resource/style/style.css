@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 body {
-  background-color: #EAE8FE;
+  background-color: #eae8fe;
 }
 
 .bever_image {
@@ -22,40 +22,100 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start; 
-  gap: 0 28px; 
+  align-items: flex-start;
+  gap: 0 28px;
   padding-top: 248px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-
 #app .title {
+  /* 
+  position이 필요하지 않나..
+  position: absolute;
+  position: fixed;
+   */
+  position: absolute;
   top: 0;
   width: 100%;
   max-width: 386px;
   height: 180px;
-  background: no-repeat center / 100% 100% url(../images/logo.svg);
 }
 
-#app .bever_items, #app .bever_info{
-  width:360px;
-  background:#fff;
+#app .bever_items, #app .bever_total {
+  width: 360px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+#app .bever_items, #app .bever_info {
+  padding: 31px 28px 27px;
+  width: 360px;
+  background: #fff;
   box-sizing: border-box;
 }
 
-.bever_items .bever_list{
+.bever_items .bever_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-content: space-between;
+  /* align-content: space-between; */
+  align-items: space-between;
 }
 
-.bever_items .bever_list li{
+.bever_items .bever_list li {
   position: relative;
   width: 30%;
   height: 130px;
   border-radius: 10px;
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+.bever_items .bever_list li:nth-child(n + 1):nth-child(-n + 3) {
+  margin-bottom: 12px;
+}
+.bever_list .list_put {
+  width: 100%;
+  height: 100%;
+}
+
+.list_put strong {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 13px;
+}
+
+.list_put p {
+  display: inline-block;
+  width: 70px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  /* vertical-align: middle; */
+  color: #fff;
+  border-radius: 50px;
+  background-color: #6327fe;
+}
+
+.cont_return, .cont_put, .bever_info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.cont_return .bever_remain, .cont_put .bever_put, .bever_info .list_items {
+  width: 65%;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.cont_return .bever_return, .cont_put .bever_deposit, .bever_info .bever_obtain {
+  width: 30%;
+  font-size: 13px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 50%);
 }
 
 .bever_items .bever_list .bever_image {
@@ -63,3 +123,69 @@ body {
   height: 65px;
   margin: 0 auto;
 }
+
+.cont_return .bever_remain {
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 20px;
+  background-color: #EAE8FE;
+}
+
+.bever_balance {
+  float: right;
+}
+
+.cont_put .bever_put {
+  border: 1px solid #bdbdbd;
+  line-height: 19px;
+}
+
+.bever_info .list_items {
+  height: 106px;
+  overflow-y: scroll;
+  padding: 12px;
+  border: 1px solid #bdbdbd;
+  background-color: #EAE8FE;
+}
+
+.bever_info .item_img {
+  width: 18px;
+  height: 33px;
+}
+
+.list_items .item_select {
+  overflow: hidden;
+  border-radius: 5px;
+  padding: 6px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.list_items .item_img, .list_items .item_txt {
+  float: left;
+}
+
+.list_items .item_txt {
+  margin-left: 11px;
+  line-height: 18px;
+  font-size: 9px;
+}
+
+.list_items .item_count {
+  display: flex;
+  float: right;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.bever_info .bever_obtain {
+  font-weight: 700;
+  background-color: #6327FE;
+  color: #fff;
+}
+
