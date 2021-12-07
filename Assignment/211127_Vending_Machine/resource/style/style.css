@@ -107,7 +107,7 @@ body {
   margin-top: 12px;
 }
 
-.cont_return .bever_remain, .cont_put .bever_put, .bever_info .list_items {
+.bever_remain, .bever_put, .list_items {
   width: 65%;
   padding: 6px 10px;
   box-sizing: border-box;
@@ -121,7 +121,9 @@ body {
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 50%);
 }
 
-.cont_return .bever_remain {
+.bever_remain {
+  display: flex;
+  justify-content: space-between;
   overflow: hidden;
   font-size: 14px;
   line-height: 20px;
@@ -148,6 +150,10 @@ body {
 .bever_info .item_img {
   width: 18px;
   height: 33px;
+}
+
+.bever_info .bever_detail {
+  
 }
 
 .list_items li {
@@ -190,16 +196,21 @@ body {
   color: #fff;
 }
 
-.bever_possesion, .bever-info_tit {
-  display: flex;
-  justify-content: space-between;
-}
-
-.bever_possesion {
-  margin-top: 9px;
-}
-
 .bever-info_tit {
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
   margin-top: 12px;
 }
 
+.count_money {
+  background: #fff;
+  padding: 9px 27px;
+}
+
+.bever_calculate {
+  display: block;
+  text-align: right;
+  width: 100%;
+  margin-top: 6px;
+}
