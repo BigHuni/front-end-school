@@ -201,6 +201,7 @@ body {
   text-align: center;
   font-size: 14px;
   margin-top: 12px;
+  border-top: 2rem solid #EAE8FE;
 }
 
 .count_money {
@@ -214,3 +215,4 @@ body {
   width: 100%;
   margin-top: 6px;
 }
+
