@@ -216,3 +216,11 @@ body {
   margin-top: 6px;
 }
 
+.money_remain {
+    width: 100%;
+    padding: 6px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: #EAE8FE;
+}
+
