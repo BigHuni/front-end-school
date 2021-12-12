@@ -1,226 +1,384 @@
 @charset "utf-8";
 
 body {
-  background-color: #eae8fe;
-}
-
-.bever_image {
-  display: block;
-}
-
-.bm {
-  display: block;
-  overflow: hidden;
-  position: absolute;
-  text-indent: -9999px;
-  line-height: 0;
-  font-size: 1px;
-  color: transparent;
-}
-
-#app {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 0 28px;
-  padding-top: 248px;
   font-family: "Noto Sans KR", sans-serif;
 }
 
-#app .title {
+/* utility */
+/* 요소를 완전히 없애면 안되고.. 글자만 없애는 걸로.. */
+.ir {
   position: absolute;
+  display: block;
+  overflow: hidden;
+  font-size: 1px;
+  line-height: 0;
+  color: transparent;
+  text-indent: -9999px;
+}
+
+html {
+  /* https://velog.io/@leewooseong/REM-EM */
+  /* 폰트 사이즈에 대해 유동적인 레이아웃 제공을 위해서 */
+  /* default font size: 16px -> 10px */
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #eae8fe;
+}
+
+/* h1 */
+.tit-app {
+  /* position이 생략된 것 */
   top: 0;
-  width: 100%;
-  max-width: 386px;
-  height: 180px;
+  /* transform: translate(-50%, -50%); */
+  width: 38.6rem;
+  height: 18rem;
+  background: no-repeat 100% 100%/ 100% 100% url(../img/logo.png);
 }
 
-#app .bever_items, #app .bever_total {
-  width: 360px;
-  box-sizing: border-box;
-  background-color: #fff;
-}
-
-#app .bever_items {
-  padding: 31px 28px 27px;
-  width: 360px;
-  background: #fff;
-  box-sizing: border-box;
-}
-
-.bever_items .bever_list {
+/* main tag */
+#app {
+  margin: 0 auto;
+  padding-top: 24.7rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  /* align-content: space-between; */
-  align-items: space-between;
-}
-
-.bever_items .bever_list li {
-  position: relative;
-  width: 30%;
-  height: 130px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 20px;
-}
-
-.bever_items .bever_list li:nth-child(n + 1):nth-child(-n + 3) {
-  margin-bottom: 12px;
-}
-
-.bever_items .bever_list .bever_image {
-  width: 36px;
-  height: 65px;
-  margin: 0 auto;
-}
-
-.bever_list .list_put {
-  width: 100%;
-  height: 100%;
-}
-
-.list_put strong {
-  font-family: Noto Sans KR;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 9px;
-  line-height: 13px;
-}
-
-.list_put p {
-  display: inline-block;
-  width: 70px;
-  height: 20px;
-  font-size: 12px;
-  line-height: 20px;
-  /* vertical-align: middle; */
-  color: #fff;
-  border-radius: 50px;
-  background-color: #6327fe;
-}
-
-.cont_return, .cont_put, .bever_info {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-}
-
-.bever_remain, .bever_put, .list_items {
-  width: 65%;
-  padding: 6px 10px;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-
-.cont_return .bever_return, .cont_put .bever_deposit, .bever_info .bever_obtain {
-  width: 30%;
-  font-size: 13px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 4px rgba(0, 0, 0, 50%);
-}
-
-.bever_remain {
-  display: flex;
-  justify-content: space-between;
-  overflow: hidden;
-  font-size: 14px;
-  line-height: 20px;
-  background-color: #EAE8FE;
-}
-
-.bever_balance {
-  float: right;
-}
-
-.cont_put .bever_put {
-  border: 1px solid #bdbdbd;
-  line-height: 19px;
-}
-
-.bever_info .list_items {
-  height: 106px;
-  overflow-y: scroll;
-  padding: 12px;
-  border: 1px solid #bdbdbd;
-  background-color: #EAE8FE;
-}
-
-.bever_info .item_img {
-  width: 18px;
-  height: 33px;
-}
-
-.bever_info .bever_detail {
-  
-}
-
-.list_items li {
-  margin-top: 6px;
-}
-
-.list_items .item_select {
-  overflow: hidden;
-  border-radius: 5px;
-  padding: 6px;
-  background-color: #fff;
-  box-sizing: border-box;
-}
-
-.list_items .item_img, .list_items .item_txt {
-  float: left;
-}
-
-.list_items .item_txt {
-  margin-left: 11px;
-  line-height: 18px;
-  font-size: 9px;
-}
-
-.list_items .item_count {
-  display: flex;
-  float: right;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #bdbdbd;
-  box-sizing: border-box;
-  border-radius: 5px;
   justify-content: center;
   align-items: center;
+  /* 넓이를 지정해주지 않으면 flex-zoom 이슈가 발생하여서 어쩔 수 없이..  */
+  /* 그런데 이렇게 넓이를 지정해주면 wrap이 적용이 안된다.
+    1. flex-wrap: wrap은 container의 width가 content보다 작을 때 wrapping 된다.
+    2. 하지만 width를 쓰게 된다면 width값이 고정이 되기 때문에 max-width로 유동적인 값을 줘야한다.
+  */
+  /* width: 74.8rem; */
+  max-width: 74.8rem;
+  gap: 2.8rem;
 }
 
-.bever_info .bever_obtain {
-  font-weight: 700;
-  background-color: #6327FE;
-  color: #fff;
+/* vending-machine section */
+.vending-machine {
+  /* width를 적어주지 않아도 내부 content의 width와 margin으로 전체 넓이가 유지됨 */
+  /* width: 360px; */
+  padding: 2.8rem 2.4rem 2.8rem;
+  box-sizing: border-box;
+  background-color: #ffffff;
 }
 
-.bever-info_tit {
-  font-weight: bold;
-  text-align: center;
-  font-size: 14px;
-  margin-top: 12px;
-  border-top: 2rem solid #EAE8FE;
+.list-item {
+  margin-bottom: 1.7rem;
+  display: grid;
+  gap: 0.6rem;
+  /* 
+    template-columns, rows: 는 그리드 아이템들의 위치를 선언해주는 것! 전체 넓이 주는 것과 혼동하지 말자. 
+    px을 사용하면 자식(아이템)의 width 값의 합이 부모(컨테이너)의 width로 반영되지만
+    fr을 사용할 경우 부모의 width 값이 없다면?? > 자식의 content width 값 합을 부모의 width로 지정하게된다!
+    ※ fr 은 단순히 비율을 지정하는 것!(가변 크기)    
+  */
+  /* 넓이를 어떻게 잡아주는 것인가? > flex 처럼 요소 */
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: repeat(3, 50px); */
+  grid-template-rows: 1fr 1fr;
 }
 
-.count_money {
-  background: #fff;
-  padding: 9px 27px;
+/* 
+  btn-item에 hover시 border를 씌우려고 했는데 btn-item에 적용하면 border크기 만큼 들쑥날쑥 해진다 
+  해결 방법으로 li에 border를 씌우는 방법과 box-shadow로 이를 해결하는 방법이 있다.
+*/
+/* 방법1. border만큼 margin을 주고 hover시 이를 border로 대체하기 */
+.list-item li {
+  margin: 0.3rem;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 0.4rem rgba(0, 0, 0, 0.5);
+}
+.list-item li:hover {
+  border: 0.3rem solid #6327fe;
+  margin: 0;
 }
 
-.bever_calculate {
+/* 방법2. li의 margin을 지우고 바로 box-shadow로 3px 효과주기*/
+.btn-item:hover {
+  border-radius: 1rem;
+  /* box-shadow: 0px 0px 0 3px #6327fe; */
+}
+/* 방법3. css outline 속성을 통해서도 이를 적용할 수 있다. */
+
+.btn-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1.1rem 0px 0.6rem;
+  /* 유동적인 변화를 위해서 height는 지정해주지 않는다. */
+  /* height: 13rem; */
+  /* flex 축이 column이기 때문에 flex-basis는 지정하지 못함 */
+  width: 9.4rem;
+  font-weight: 500;
+  line-height: 1.3rem;
+  font-size: 0.9rem;
+}
+
+/* 동적인 이미지?? > 이것까지는 처리 x..*/
+.btn-item .img-item {
+  width: 3.6rem;
+  height: 6.5rem;
+  margin: 0 auto 0.6rem;
+}
+.btn-item .tit-item {
+  /* 부모 요소에서 flex를 안쓴다면 전체 크기로 잡아주기 위해서 display:block 속성이 필요 */
+  /* display: block; */
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+  margin-bottom: 0.7rem;
+}
+
+.btn-item .txt-item {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  color: white;
+  background: #6327fe;
+  border-radius: 5rem;
+}
+
+/* 반환될 정보들의 contents */
+/* 
+        column     column
+row1     잔액        1000원
+row2     금액 입력   입금
+row3     컨테이너    획득
+*/
+.control-container {
+  /* 넓이를 지정해주지 않으면 display: block처럼 작용 */
+  display: grid;
+  grid-template-columns: 20rem 9.4rem;
+  grid-template-rows: minmax(0, auto);
+  gap: 1.1rem 1.2rem;
+}
+
+.info-changes {
+  overflow: hidden;
+  background-color: #eae8fe;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem 0.7rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.txt-changes {
+  float: right;
+}
+
+.inp-put {
+  border-radius: 0.5rem;
+  border: 1px solid #bdbdbd;
+  margin-bottom: 0.1rem;
+}
+.inp-put::placeholder {
+  font-size: 13px;
+  line-height: 19px;
+  font-weight: 500;
+  color: #bdbdbd;
+}
+
+.btn-changes_return,
+.btn-put {
+  background: #ffffff;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.25);
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  border-radius: 0.5rem;
+}
+/* 거스름돈 반환 버튼 */
+.btn-return {
+  padding: 0.6rem 0.9rem 0.8rem;
+  /* box-sizing: border-box; */
+}
+/* 입금 버튼 */
+.btn-put {
+  padding: 0.6rem 3.5rem 0.7rem;
+  margin-bottom: 0.1rem;
+  /* box-sizing: border-box; */
+}
+
+.list-item-staged {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* 높이를 지정하는게 좋을까? 아니다 > 획득 버튼의 크기에 따라 자동으로 늘어나도록 만들자!(grid의 특성을 이용) */
+  background-color: #eae8fe;
+  overflow-y: scroll;
+  /* overflow: hidden; */
+  /* max-height: 54%; */
+  height: 10.6rem;
+  border-radius: 0.5rem;
+  padding: 1.2rem 0.6rem 1.2rem 1.2rem;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  border-radius: 5px;
+  /* float를 쓰기 위해 > flex로 변경.. 반응형 대처가 너무 힘들다.. */
+  /* overflow: hidden; */
+}
+/* 스크롤 스타일 */
+.list-item-staged::-webkit-scrollbar {
+  width: 1.2rem;
+  height: 7.9rem;
+}
+.list-item-staged::-webkit-scrollbar-thumb {
+  height: 17%;
+  background-color: rgba(255, 255, 255, 1);
+  /* 스크롤바 둥글게 설정    */
+  border: 0.4rem solid #eae8fe;
+  border-radius: 1rem;
+}
+.item-staged {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem 0.7rem 1rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.item-staged:last-child {
+  margin-bottom: 0;
+}
+.item-staged img {
+  width: 1.8rem;
+  height: 3.3rem;
+  float: left;
+}
+.item-staged strong {
+  /* margin을 먹이기 위한 display */
+  float: left;
+  font-size: 0.9rem;
+  line-height: 1.3rem;
+}
+.item-staged span {
   display: block;
-  text-align: right;
+  padding: 0.4rem 1.1rem 0.6rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+
+/* 획득 버튼 */
+.btn-get {
+  padding: 4.3rem 3.5rem 4.4rem;
+  font-size: 1.3rem;
+  line-height: 1.9rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #6327fe;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.5);
+}
+
+/* my-info section */
+.my-info {
+  display: flex;
+  flex-direction: column;
+  background-color: #eae8fe;
+}
+
+.my-info .cont-mymoney {
+  width: 36rem;
+  background-color: #ffffff;
+  padding: 0.9rem 2.7rem;
+  box-sizing: border-box;
+}
+.my-info .info-mymoney {
+  overflow: hidden;
+  background-color: #eae8fe;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.my-info .txt-mymoney {
+  float: right;
+}
+
+.my-info .cont-myitems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 2.5rem 2.7rem 2.6rem;
+  background-color: #ffffff;
+}
+
+.cont-myitems .tit-myitem {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 13px;
+}
+
+.cont-myitems .list-item-staged {
   width: 100%;
-  margin-top: 6px;
+  height: 36.4rem;
 }
 
-.money_remain {
-    width: 100%;
-    padding: 6px 10px;
+.cont-myitems .txt-total {
+  margin-top: 0.6rem;
+  align-self: flex-end;
+  line-height: 2.1rem;
+}
+
+/* media queries */
+@media screen and (max-width: 360px) {
+  .ir {
+    position: relative;
+  }
+
+  body {
+    background-color: #ffffff;
+  }
+
+  .tit-app {
+    width: 166px;
+    height: 71.12px;
+  }
+
+  #app {
+    padding-top: 0;
+    gap: 0;
+  }
+
+  .vending-machine {
+    padding: 1.8rem 2.4rem 2.8rem;
+
+    /* 4개 */
+    /* 위 오 아 왼 */
+    /* 3개 */
+    /* 위 (오 왼) 아 */
+    /* 2개 */
+    /* (위 아) (오 왼) */
     box-sizing: border-box;
-    border-radius: 5px;
-    background: #EAE8FE;
+    background-color: #ffffff;
+  }
+  .vending-machine {
+    padding: 1.8rem 2.4rem 2rem;
+  }
+
+  .my-info .cont-mymoney {
+    padding: 0 2.7rem;
 }
 
+  .my-info .cont-myitems {
+  margin-top: 0;
+  padding: 4.1rem 2.7rem 2.6rem;
+  }
+
+
+  .my-info .cont-myitems {
+    padding: 2.5rem 2.7rem 4.3rem;
+  }
+
+/* 1. 안에서부터 만들어보기 */
+/* scroll 디자인 넣어서 또 시도해보기 */
+/* 모듈형으로 디자인해보기 */
+/* focus??? */
+/* 로그인 및 select box 프로젝트에서 배운 팁도 적용해보기 */
