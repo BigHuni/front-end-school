@@ -3,4 +3,4 @@
 ## Asignment✍🏻
 - 211101_제주코딩베이스캠프 소개 웹 페이지 클론(https://BigHuni.github.io/front-end-school/Assignment/211101_Paullab/)
 - 211102_나만의 캐릭터 만들기(https://bighuni.github.io/front-end-school/Assignment/211104_Character/)
-- 211127_벤딩머신(https://github.com/BigHuni/front-end-school/tree/main/Assignment/211127_Vending_Machine)
+- 211127_벤딩머신(https://bighuni.github.io/front-end-school/Assignment/211127_Vending_Machine)
